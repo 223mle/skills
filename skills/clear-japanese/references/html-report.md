@@ -5,10 +5,10 @@
 ## 手順
 
 1. 4パスのレビューで集めた指摘を、下記スキーマの JSON にまとめて書き出す。出力先はスクラッチパッド（無ければ `mktemp -d`）。対象文書のあるリポジトリ内には書かない
-2. スクリプトで HTML を生成する:
+2. スクリプトで HTML を生成する（`<skill-dir>` は、このスキルが置かれているディレクトリ。スキル起動時に表示される base directory を使う）:
 
    ```bash
-   python3 ~/.claude/skills/clear-japanese/scripts/build_review.py <dir>/review-data.json <dir>/review-<文書名>.html
+   python3 <skill-dir>/scripts/build_review.py <dir>/review-data.json <dir>/review-<文書名>.html
    ```
 
 3. `open <dir>/review-<文書名>.html` でブラウザ表示する
