@@ -19,7 +19,7 @@ for s in ~/skills/skills/*/; do ln -sfn "$s" ~/.claude/skills/"$(basename "$s")"
 
 ### 文章
 
-- **clear-japanese** — 読み手が一読で意味を取れる日本語を書く・レビューする。語彙・文・構造・AIっぽさの4層で診断し、指摘は GitHub Diff 風の HTML レポートで表示。採用/却下と修正案の編集をブラウザ上で行い、結果をチャットに貼り戻して適用する。
+- **clear-japanese** — 日本語の意味と文体を保ちながら、語句・文・段落のつながりを整えて清書する。清書後の本文を直接返す。
 
 ### ハーネス(agent swarm 規律)
 
