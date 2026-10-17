@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Starter table aggregation request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["operation", "requestId", "sourceId", "tableId", "groupBy", "measures", "filters", "nullPolicy", "duplicatePolicy", "output"],
+  "properties": {
+    "operation": {"const": "aggregate"},
+    "requestId": {"$ref": "#/$defs/identifier"},
+    "sourceId": {"$ref": "#/$defs/identifier"},
+    "tableId": {"$ref": "#/$defs/identifier"},
+    "groupBy": {
+      "type": "array", "minItems": 1, "maxItems": 3, "uniqueItems": true,
+      "items": {"$ref": "#/$defs/identifier"}
+    },
+    "measures": {
+      "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["columnId", "function"],
+        "properties": {
+          "columnId": {"$ref": "#/$defs/identifier"},
+          "function": {"enum": ["sum", "count"]}
+        }
+      }
+    },
+    "filters": {
+      "type": "array", "maxItems": 10,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["columnId", "operator", "value"],
+        "properties": {
+          "columnId": {"$ref": "#/$defs/identifier"},
+          "operator": {"const": "equals"},
+          "value": {"type": ["string", "number", "boolean"]}
+        }
+      }
+    },
+    "nullPolicy": {"enum": ["skip", "reject"]},
+    "duplicatePolicy": {"enum": ["keep", "reject-exact"]},
+    "output": {
+      "type": "object", "additionalProperties": false,
+      "required": ["bindingId", "layout", "onExisting"],
+      "properties": {
+        "bindingId": {"$ref": "#/$defs/identifier"},
+        "layout": {"const": "summary-table"},
+        "onExisting": {"enum": ["reject", "replace-bound-output"]}
+      }
+    }
+  },
+  "$defs": {
+    "identifier": {"type": "string", "minLength": 1, "maxLength": 128}
+  }
+}
