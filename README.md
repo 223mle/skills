@@ -21,6 +21,10 @@ for s in ~/skills/skills/*/; do ln -sfn "$s" ~/.claude/skills/"$(basename "$s")"
 
 - **clear-japanese** — 日本語の意味と文体を保ちながら、語句・文・段落のつながりを整えて清書する。清書後の本文を直接返す。
 
+### エージェント・スキルの設計改善
+
+- **[agent-design-review](skills/agent-design-review/SKILL.md)** — エージェントやスキルを作成・改善するときに、LLMが繰り返す判断を道具・部品・スキーマ・テンプレートへ移す。環境と道具、自動チェック、プロンプト・スキル、人のレビューの順で改善を検討する。スライドとExcelの具体例を含む。通常の成果物作成ではなく、作る仕組みを改善する場面で使う。
+
 ### ハーネス(agent swarm 規律)
 
 トップティア AI 企業(Cursor / Anthropic / OpenAI / Google / Moonshot ほか)の agent swarm 一次情報調査から抽出した「課題→工夫」を、Claude Code の運用規律に落としたスキル群。5 本で独立して使えるが、組み合わせると planner/worker 型のハーネスとして機能する。**ユーザーの明示的な指示は前提にしない** — ユーザーは目標を述べるだけで、委譲・検証・申し送りの判断はエージェントが自律的に行う(発動条件は各スキルの description に記載)。
