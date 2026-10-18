@@ -17,13 +17,7 @@ for s in ~/skills/skills/*/; do ln -sfn "$s" ~/.claude/skills/"$(basename "$s")"
 
 ## Skills
 
-### 文章
-
-- **clear-japanese** — 日本語の意味と文体を保ちながら、語句・文・段落のつながりを整えて清書する。清書後の本文を直接返す。
-
-### エージェント・スキルの設計改善
-
-- **[agent-design-review](skills/agent-design-review/SKILL.md)** — エージェントやスキルを作成・改善するときに、LLMが繰り返す判断を道具・部品・スキーマ・テンプレートへ移す。環境と道具、自動チェック、プロンプト・スキル、人のレビューの順で改善を検討する。スライド生成・表計算操作スキルを作るための設計ガイド、再利用できるJSON Schema、期待結果を持つ検証例を含む。通常の成果物作成ではなく、作る仕組みを改善する場面で使う。
+`clear-japanese` と `agent-design-review` は、別の非公開リポジトリに移したため、ここからは削除しました。
 
 ### ハーネス(agent swarm 規律)
 
